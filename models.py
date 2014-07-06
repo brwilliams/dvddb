@@ -8,13 +8,21 @@ class Media(models.Model):
         who_has = models.CharField(max_length=100, default = 'Brian')
         copies = models.PositiveSmallIntegerField(default = 1)
         condition = models.TextField()
+        wiki = models.URLField()
+        amazon = models.URLField()
+        genre_choices = ( #https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.Field.choices
+                ('SF', 'Sci-fi'),
+                ('FAN', 'Fantasy'),
+                ('COM', 'Comedy'),
+                ('NF', 'Non-fiction'),
+                ('SH', 'Superhero'),
+                ('O', 'Other'),
+        )
+        genre = models.CharField(max_length=3, choices = genre_choices, default = 'O')
         #year?  looks complicated to do "right"
-        #genre?
-        #something to keep a series together?  looks like ManyToManyField?
-        #link to wikipedia?
-        #link to amazon
+        #something to keep a series together?  looks like ManyToManyField?        def __unicode__(self):
         def __unicode__(self):
-		return self.name
+                return self.name
 
 class DVD(Media):
         ripped_to_server = models.BooleanField(default=False)
@@ -26,7 +34,7 @@ class DVD(Media):
         runtime_in_minutes = models.PositiveSmallIntegerField() #is there a better way to do this
         director = models.CharField(max_length=100) #maybe make a director class
         #actors = many to many?
-        #link to imdb?
+        imdb = models.URLField()
 
 class Book(Media):
         author = models.CharField(max_length=100)
