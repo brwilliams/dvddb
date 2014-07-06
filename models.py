@@ -11,6 +11,7 @@ class Media(models.Model):
         #genre?
         #something to keep a series together?  looks like ManyToManyField?
         #link to wikipedia?
+        #link to amazon
         def __unicode__(self):
 		return self.name
 
@@ -18,7 +19,7 @@ class DVD(Media):
         ripped_to_server = models.BooleanField(default=False)
         tv_show = models.BooleanField(default=False)
         box_set = models.BooleanField(default=False)
-        director = models.CharField(max_length=100)
+        director = models.CharField(max_length=100) #maybe make a director class
         #actors = many to many?
         #link to imdb?
 
@@ -26,12 +27,14 @@ class Book(Media):
         author = models.CharField(max_length=100)
         paperback = models.BooleanField(default=False)
         own_ebook = models.BooleanField(default=False)
-        #link to amazon?
-
+        
 class CD(Media): #don't think I'll do this, but just in case
-
+        artist = models.CharField(max_length=100)
+        tracks = models.PositiveSmallIntegerField()
+        
 class VideoGames(Media): #same
         console = models.ForeignKey(Console)
+        
 class Console(models.Model): #just in case
         name = models.CharField(max_length=100)
         #place in house?
