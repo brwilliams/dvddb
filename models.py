@@ -27,14 +27,14 @@ class Book(Media):
         author = models.CharField(max_length=100)
         paperback = models.BooleanField(default=False)
         own_ebook = models.BooleanField(default=False)
-        
+
 class CD(Media): #don't think I'll do this, but just in case
         artist = models.CharField(max_length=100)
         tracks = models.PositiveSmallIntegerField()
-        
+
 class VideoGames(Media): #same
         console = models.ForeignKey(Console)
-        
+
 class Console(models.Model): #just in case
         name = models.CharField(max_length=100)
         #place in house?
@@ -44,7 +44,7 @@ class Location(models.Model): #entertainment, piano, tall bookcase
         room = models.CharField(max_length=100)
         def __unicode__(self):
 		return self.name
-        
+
 class Shelf(models.Model): #first shelf, cabinet, etc
         location = models.ForeignKey(Location)
         name = models.CharField(max_length=100)
