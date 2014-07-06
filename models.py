@@ -28,6 +28,8 @@ class Book(Media):
         own_ebook = models.BooleanField(default=False)
         #link to amazon?
 
+class CD(Media): #don't think I'll do this, but just in case
+
 class Location(models.Model): #entertainment, piano, tall bookcase
         name = models.CharField(max_length=100)
         room = models.CharField(max_length=100)
