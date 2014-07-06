@@ -4,3 +4,4 @@ Make sure admin site works
 Add some test items via admin
 Tweak
 Do url/view/template junk
+  
