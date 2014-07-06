@@ -22,7 +22,7 @@ class Media(models.Model):
         )
         genre = models.CharField(max_length=3, choices = genre_choices, default = 'O')
         #year?  looks complicated to do "right"
-        #something to keep a series together?  looks like ManyToManyField?        def __unicode__(self):
+        #something to keep a series together?  looks like ManyToManyField?
         def __unicode__(self):
                 return self.name
 
