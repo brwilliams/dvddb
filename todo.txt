@@ -1,3 +1,4 @@
+Stop getting distracted by dumb github related things
 Figure out manytomany
 Make sure admin site works
 Add some test items via admin
