@@ -23,8 +23,8 @@ class DVD(Media):
         widescreen = models.BooleanField(default=True)
         blu_ray = models.BooleanField(default=False)
         number_of_discs = models.PositiveSmallIntegerField(default = 1)
-        director = models.CharField(max_length=100) #maybe make a director class
         runtime_in_minutes = models.PositiveSmallIntegerField() #is there a better way to do this
+        director = models.CharField(max_length=100) #maybe make a director class
         #actors = many to many?
         #link to imdb?
 
