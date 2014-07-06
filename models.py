@@ -30,6 +30,12 @@ class Book(Media):
 
 class CD(Media): #don't think I'll do this, but just in case
 
+class VideoGames(Media): #same
+        console = models.ForeignKey(Console)
+class Console(models.Model): #just in case
+        name = models.CharField(max_length=100)
+        #place in house?
+
 class Location(models.Model): #entertainment, piano, tall bookcase
         name = models.CharField(max_length=100)
         room = models.CharField(max_length=100)
