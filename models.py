@@ -16,6 +16,8 @@ class Media(models.Model):
                 ('COM', 'Comedy'),
                 ('NF', 'Non-fiction'),
                 ('SH', 'Superhero'),
+                ('GA', 'Generic Action'),
+                ('SPR', 'Sports')
                 ('O', 'Other'),
         )
         genre = models.CharField(max_length=3, choices = genre_choices, default = 'O')
