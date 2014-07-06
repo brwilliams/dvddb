@@ -43,6 +43,7 @@ class Book(Media):
         paperback = models.BooleanField(default=False)
         own_ebook = models.BooleanField(default=False)
         pages = models.PositiveSmallIntegerField()
+        #some sort of size choice?  like trade paperback, mass media, etc
         #something like "if textbook, what course?"
 
 class CD(Media): #don't think I'll do this, but just in case
