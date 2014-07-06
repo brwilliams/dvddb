@@ -1,6 +1,9 @@
 Stop getting distracted by dumb github related things
 Figure out manytomany
+Figure out best way to do time related stuff (year, runtime)
 Make sure admin site works
+Make admin site fancier (see tutorial)
 Add some test items via admin
 Tweak
+Tweak more
 Do url/view/template junk
