@@ -7,7 +7,7 @@ class Media(models.Model):
         checked_out = models.BooleanField(default=False)
         who_has = models.CharField(max_length=100, default = 'Brian')
         copies = models.PositiveSmallIntegerField(default = 1)
-        condition = models.CharField(max_length=1000)
+        condition = models.TextField()
         #year?  looks complicated to do "right"
         #genre?
         #something to keep a series together?  looks like ManyToManyField?
