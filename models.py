@@ -70,7 +70,6 @@ class Shelf(models.Model): #first shelf, cabinet, etc
 		return self.name
 
 class SubShelf(Shelf): #avengers, classics
-        #import from shelf again?
         shelf = models.ForeignKey(Shelf)
         name = models.CharField(max_length=100)
         #series?
