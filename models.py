@@ -69,7 +69,7 @@ class Shelf(models.Model): #first shelf, cabinet, etc
         def __unicode__(self):
 		return self.name
 
-class SubShelf(models.Model): #avengers, classics
+class SubShelf(Shelf): #avengers, classics
         #import from shelf again?
         shelf = models.ForeignKey(Shelf)
         name = models.CharField(max_length=100)
