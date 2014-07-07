@@ -1,26 +1,26 @@
 from django.db import models
 
 class Media(models.Model):
-        shelf = models.ForeignKey(Shelf) #or maybe subshelf?
+        shelf = models.ForeignKey("Shelf") #or maybe subshelf?
         name = models.CharField(max_length=100)
-        UPC = models.DecimalField(max_digits=12, decimal_places=None)
+        UPC = models.DecimalField(max_digits=12, decimal_places=0, blank=True)
         checked_out = models.BooleanField(default=False)
         who_has = models.CharField(max_length=100, default = 'Brian')
         copies = models.PositiveSmallIntegerField(default = 1)
-        condition = models.TextField()
-        wiki = models.URLField()
-        amazon = models.URLField()
-        genre_choices = ( #https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.Field.choices
-                ('SF', 'Sci-fi'),
-                ('FAN', 'Fantasy'),
-                ('COM', 'Comedy'),
-                ('NF', 'Non-fiction'),
-                ('SH', 'Superhero'),
-                ('GA', 'Generic Action'),
-                ('SPR', 'Sports')
-                ('O', 'Other'),
-        )
-        genre = models.CharField(max_length=3, choices = genre_choices, default = 'O')
+        condition = models.TextField(blank=True)
+        wiki = models.URLField(blank=True)
+        amazon = models.URLField(blank=True)
+#        genre_choices = ( #https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.Field.choices
+#                ('SF', 'Sci-fi'),
+#                ('FAN', 'Fantasy'),
+#                ('COM', 'Comedy'),
+#                ('NF', 'Non-fiction'),
+#                ('SH', 'Superhero'),
+#                ('GA', 'Generic Action'),
+#                ('SPR', 'Sports')
+#                ('O', 'Other'),
+#        )
+#        genre = models.CharField(max_length=3, choices = genre_choices, default = 'O')
         #year?  looks complicated to do "right"
         #something to keep a series together?  looks like ManyToManyField?
         def __unicode__(self):
@@ -33,16 +33,16 @@ class DVD(Media):
         widescreen = models.BooleanField(default=True)
         blu_ray = models.BooleanField(default=False)
         number_of_discs = models.PositiveSmallIntegerField(default = 1)
-        runtime_in_minutes = models.PositiveSmallIntegerField() #is there a better way to do this
-        director = models.CharField(max_length=100) #maybe make a director class
+        runtime_in_minutes = models.PositiveSmallIntegerField(blank=True) #is there a better way to do this
+        director = models.CharField(max_length=100, blank=True) #maybe make a director class
         #actors = many to many?
-        imdb = models.URLField()
+        imdb = models.URLField(blank=True)
 
 class Book(Media):
         author = models.CharField(max_length=100)
         paperback = models.BooleanField(default=False)
         own_ebook = models.BooleanField(default=False)
-        pages = models.PositiveSmallIntegerField()
+        pages = models.PositiveSmallIntegerField(blank=True)
         #some sort of size choice?  like trade paperback, mass media, etc
         #something like "if textbook, what course?"
 
@@ -51,7 +51,7 @@ class CD(Media): #don't think I'll do this, but just in case
         number_of_tracks = models.PositiveSmallIntegerField()
 
 class VideoGames(Media): #same
-        console = models.ForeignKey(Console)
+        console = models.ForeignKey("Console")
 
 class Console(models.Model): #just in case
         name = models.CharField(max_length=100)
